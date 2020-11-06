@@ -14,7 +14,7 @@ int main() {
 
     calCake(n, nCakePtr);
 
-    cout << *nCakePtr;
+    cout << nCake;
 }
 
 void calCake(int n, int* nCake)
