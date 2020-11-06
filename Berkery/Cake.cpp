@@ -76,19 +76,25 @@ void calCake(int n, int* nCake)
             }
             else
             {
-                c -= halfCake;
-                halfCake = 0;
-
-                if (c % 2 == 0)
+                if (c > halfCake)
                 {
-                    *nCake += c / 2;
+                    c -= halfCake;
+                    halfCake = 0;
+
+                    if (c % 2 == 0)
+                    {
+                        *nCake += c / 2;
+                    }
+                    else
+                    {
+                        *nCake += c / 2;
+                        halfCake += 1;
+                    }
                 }
                 else
                 {
-                    *nCake += c / 2;
-                    halfCake += 1;
+                    halfCake -= c;
                 }
-
             }
 
         }
@@ -113,19 +119,26 @@ void calCake(int n, int* nCake)
             }
             else
             {
-                e -= oqCake;
-                oqCake = 0;
-                if (e % 4 == 0)
+                if (e > oqCake)
                 {
-                    *nCake += e / 4;
+                    e -= oqCake;
+                    oqCake = 0;
+                    if (e % 4 == 0)
+                    {
+                        *nCake += e / 4;
+                    }
+                    else
+                    {
+                        *nCake += e / 4;
+                        int q = e % 4;
+                        *nCake += 1;
+                        oqCake += 4;
+                        oqCake -= q;
+                    }
                 }
                 else
                 {
-                    *nCake += e / 4;
-                    int q = e % 4;
-                    *nCake += 1;
-                    oqCake += 4;
-                    oqCake -= q;
+                    oqCake -= e;
                 }
             }
 
@@ -151,19 +164,26 @@ void calCake(int n, int* nCake)
             }
             else
             {
-                d -= oeCake;
-                oeCake = 0;
-                if (d % 8 == 0)
+                if (d > oeCake)
                 {
-                    *nCake += d / 8;
+                    d -= oeCake;
+                    oeCake = 0;
+                    if (d % 8 == 0)
+                    {
+                        *nCake += d / 8;
+                    }
+                    else
+                    {
+                        *nCake += d / 8;
+                        int q = d % 8;
+                        *nCake += 1;
+                        oeCake += 8;
+                        oeCake -= q;
+                    }
                 }
                 else
                 {
-                    *nCake += d / 8;
-                    int q = d % 8;
-                    *nCake += 1;
-                    oeCake += 8;
-                    oeCake -= q;
+                    oeCake -= d;
                 }
             }
 
